@@ -1,3 +1,12 @@
+/////////////////////////////////////////
+/*
+Author: Ben Kollar (@benkol003)
+
+Issues:
+    Stop widgets from filling available space - make as small as possible
+*/
+/////////////////////////////////////////
+
 #include <QApplication>
 #include <QPushButton>
 #include <QVBoxLayout>

@@ -143,6 +143,36 @@ int main(int argc, char **argv){
 
     commsPanel->show();
 
+    //-------Braking Panel ------//
+    auto* brakingPanel = new SubsystemPanel("Braking",window);
+    bottomPanels->addWidget(brakingPanel);
+
+    auto* brakingStatus = new StatusWidget("Braking: ",window);
+    brakingPanel->layout()->addWidget(brakingStatus);
+
+    auto* brakingPressure = new QLabel("Pressure: N/A",window);
+    brakingPanel->layout()->addWidget(brakingPressure);
+
+    auto* brakingTemp = new QLabel("Tempurature: N/A 'C",window);
+    brakingPanel->layout()->addWidget(brakingTemp);
+
+    brakingPanel->show();
+
+    //-------Motor Panel ------//
+    auto* motorPanel = new SubsystemPanel("Motor",window);
+    bottomPanels->addWidget(motorPanel);
+
+    auto* motorStatus = new StatusWidget("Motor: ",window);
+    motorPanel->layout()->addWidget(motorStatus);
+
+    auto* motorSpeed = new QLabel("Speed: N/A",window);
+    motorPanel->layout()->addWidget(motorSpeed);
+
+    auto* motorTemp = new QLabel("Tempurature: N/A 'C",window);
+    motorPanel->layout()->addWidget(motorTemp);
+
+    motorPanel->show();
+
     //-------------------------------------------//
     //-------------------------------------------//
 

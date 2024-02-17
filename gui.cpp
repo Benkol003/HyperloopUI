@@ -91,6 +91,7 @@ int main(int argc, char **argv){
     //--------------- Top Panels ----------------//
     //-------------------------------------------//
 
+    //---- BatteryPanel ----// 
 
     auto* cameraPanel = new SubsystemPanel("Camera Feed",window);
     topPanels->addWidget(cameraPanel);
@@ -103,6 +104,22 @@ int main(int argc, char **argv){
     cameraPanelFeed->setPixmap(cameraCurrentImg.scaled(128,128));
 
     cameraPanel->show();
+
+    //---- GPS Panel ---//
+    auto* gpsPanel = new SubsystemPanel("GPS",window);
+    topPanels->addWidget(gpsPanel);
+
+    auto* gpsStatus = new StatusWidget("GPS: ",window);
+    gpsPanel->layout()->addWidget(gpsStatus);
+
+    auto* gpsLat = new QLabel("Latitude: N/A",window);
+    gpsPanel->layout()->addWidget(gpsLat);
+
+    auto* gpsLong = new QLabel("Longitude: N/A",window);
+    gpsPanel->layout()->addWidget(gpsLong);
+
+    gpsPanel->show();
+
 
     //-------------------------------------------//
     //-------------------------------------------//

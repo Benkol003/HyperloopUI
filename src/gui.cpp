@@ -6,6 +6,10 @@ Issues:
     Stop widgets from filling available space - make as small as possible
 */
 /////////////////////////////////////////
+#include <thread>
+#include <atomic>
+#include <iostream>
+#include <string>
 
 #include <QApplication>
 #include <QPushButton>
@@ -14,11 +18,7 @@ Issues:
 #include <QLabel>
 #include <QGroupBox>
 
-
-#include <thread>
-#include <atomic>
-#include <iostream>
-#include <string>
+#include <curl/curl.h>
 
 class SubsystemPanel : public QGroupBox {
     public:

@@ -1,1 +1,0 @@
-clear; qmake; nmake; ./Release/HyperloopUI.exe

@@ -1,8 +1,6 @@
 ./.*/
+bin/*
+!bin/build.sh
 .vscode/
-debug/
-release/
-.qmake.stash
-Makefile
-Makefile.debug
-Makefile.Release
+.DS_Store
+lib/curl/

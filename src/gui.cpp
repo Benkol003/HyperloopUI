@@ -120,7 +120,33 @@ int main(int argc, char **argv){
 
     gpsPanel->show();
 
+    //-------IMU Panel ------//
+    auto* imuPanel = new SubsystemPanel("IMU",window);
+    topPanels->addWidget(imuPanel);
 
+    auto* imuStatus = new StatusWidget("IMU: ",window);
+    imuPanel->layout()->addWidget(imuStatus);
+
+    auto* imuPitch = new QLabel("Pitch: N/A",window);
+    imuPanel->layout()->addWidget(imuPitch);
+
+    auto* imuRoll = new QLabel("Roll: N/A",window);
+    imuPanel->layout()->addWidget(imuRoll);
+
+    imuPanel->show();
+
+    //-------Heat Map Panel ------//
+    auto* heatMapPanel = new SubsystemPanel("Heat Map",window);
+    topPanels->addWidget(heatMapPanel);
+
+    auto* heatMapFeed = new QLabel(window);
+    heatMapFeed->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    heatMapPanel->layout()->addWidget(heatMapFeed);
+
+    auto heatMapCurrentImg = QPixmap("./noHeatMap.png");
+    heatMapFeed->setPixmap(heatMapCurrentImg.scaled(128,128));
+
+    heatMapPanel->show();
     //-------------------------------------------//
     //-------------------------------------------//
 

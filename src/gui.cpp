@@ -19,6 +19,9 @@ Issues:
 #include <QGroupBox>
 
 #include <curl/curl.h>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 class SubsystemPanel : public QGroupBox {
     public:
@@ -73,6 +76,7 @@ void worker(std::atomic_bool& stop,StatusWidget* context){
 }
 
 int main(int argc, char **argv){
+try{
     QApplication app(argc, argv);
 
     QWidget* window = new QWidget;
@@ -221,6 +225,9 @@ int main(int argc, char **argv){
 
     window->show();
 
+    //-------- non-GUI code --------//
+
+
 
     //---- Start GUI execution ----//
 
@@ -228,9 +235,17 @@ int main(int argc, char **argv){
     std::thread workerThrd(worker,std::ref(stop),commsStatus);
 
     app.exec();
+    CURL* curl = curl_easy_init();
+    
+
     stop = true;
     workerThrd.join();
+    curl_easy_cleanup(curl);
     return 0;
+
+} catch (const std::exception &e){
+    std::cerr<<e.what()<<std::endl;
+}
 }
 
 #include "gui.moc" //qmake wont insert the moc code into source files

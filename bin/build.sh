@@ -1,1 +1,4 @@
-clear; cmake ../ -GNinja; Ninja
+clear
+cmake ../ -GNinja
+Ninja
+pause

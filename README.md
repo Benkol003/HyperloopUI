@@ -9,4 +9,8 @@ You need Qt6 Core & Widgets installed; you can download qt [here](https://www.qt
 Required to install dependencies:  
 - [libcurl](https://curl.se/download.html) Source archive - place at lib/curl/
 
-Run build.sh (on windows needs to be done from qt developer terminal).
+then run bin/build.sh .
+
+## Windows Specifics
+bin/build.sh needs to be run from a qt developer terminal.  
+Running **windeployqt** will install the DLL dependencies in the current folder so that the executable can be run outside of the qt terminal.

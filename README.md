@@ -12,5 +12,8 @@ Required to install dependencies:
 then run bin/build.sh .
 
 ## Windows Specifics
-bin/build.sh needs to be run from a qt developer terminal.  
+Set the path to yor qt install in CMakeLists.txt ( set (CMAKE_PREFIX_PATH ...)
+
+bin/build.sh needs to be run from a qt developer terminal. 
+
 Running **windeployqt** will install the DLL dependencies in the current folder so that the executable can be run outside of the qt terminal.

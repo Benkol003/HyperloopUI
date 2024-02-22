@@ -24,7 +24,7 @@ set(LIBS
 )
 
 set(SOURCES
-${CMAKE_SOURCE_DIR}/src/gui.cpp
+${CMAKE_SOURCE_DIR}/src/main.cpp
 )
 
 add_executable(main ${SOURCES})

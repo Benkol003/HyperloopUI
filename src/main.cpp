@@ -1,11 +1,9 @@
 /////////////////////////////////////////
 /*
 Author: Ben Kollar (@benkol003)
-
-Issues:
-    Stop widgets from filling available space - make as small as possible
 */
 /////////////////////////////////////////
+
 #include <thread>
 #include <atomic>
 #include <iostream>
@@ -22,10 +20,9 @@ Issues:
 #include <nlohmann/json.hpp>
 
 #include "gui.hpp"
+#include "moc_gui.cpp"
 
 using json = nlohmann::json;
-
-
 
 json data;
 
@@ -45,11 +42,11 @@ try{
         //fetches json data, parse_json() will be run
         CURLcode err = curl_easy_perform(curl);
         if(err!=CURLE_OK) throw std::runtime_error("Failed to perform GET request. CURL error: "+std::to_string(err));
-        std::cout<<data<<'\n';
         gui->setBatteryTemp(data["tempurature"]);
     }
 } catch(const std::exception &e){
     std::cerr<<e.what();
+    gui->window->close();
 }
 }
 
@@ -62,9 +59,12 @@ try{
     //-------- non-GUI code --------//
     curl_global_init(CURL_GLOBAL_DEFAULT);
     CURL* curl = curl_easy_init();
-    curl_easy_setopt(curl,CURLOPT_URL,"http://localhost:8000"); //TODO test with https
+    curl_easy_setopt(curl,CURLOPT_URL,"http://192.168.137.100:8000"); //TODO test with https
     curl_easy_setopt(curl,CURLOPT_WRITEFUNCTION, parse_json);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data); //to pass other data to the function when its called
+
+    curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 2);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 4);
 
 
     //---- Start GUI execution ----//

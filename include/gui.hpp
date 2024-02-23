@@ -7,7 +7,6 @@
 #include <QLabel>
 #include <QGroupBox>
 
-
 class SubsystemPanel : public QGroupBox {
     public:
     
@@ -216,5 +215,3 @@ class HyperloopGUI {
         batteryTemp->setText(st.c_str());
     }
 };
-
-#include "gui.moc"

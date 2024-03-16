@@ -1,6 +1,10 @@
 /////////////////////////////////////////
 /*
-Author: Ben Kollar (@benkol003)
+Author: 
+
+- Ben Kollar (@benkol003)
+- Tran Khoi Nguyen Pham (@khoinguyenpham04)
+
 */
 /////////////////////////////////////////
 
